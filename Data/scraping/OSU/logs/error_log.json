@@ -1,0 +1,10 @@
+[
+    {
+        "fileName": "appfolioV1.py",
+        "errorText": "'NoneType' object is not subscriptable",
+        "errorType": "<class 'TypeError'>",
+        "line-number": 79,
+        "provider": "Willamette Valley Rentals",
+        "link": "https://www.wvpm.net"
+    }
+]

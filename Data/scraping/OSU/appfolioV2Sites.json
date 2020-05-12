@@ -1,0 +1,28 @@
+{
+    "corvallis": [
+        {
+            "provider": "Chateau Management",
+            "URL_prefix": "chateaumanagement"
+        },
+        {
+            "provider": "Crest Properties",
+            "URL_prefix": "crestproperties"
+        },
+        {
+            "provider": "Investor Property Mgmt",
+            "URL_prefix": "ipmg"
+        },
+        {
+            "provider": "Kampfer Enterprises",
+            "URL_prefix": "kampfer"
+        },
+        {
+            "provider": "Paragon Realty",
+            "URL_prefix": "paragon"
+        },
+        {
+            "provider": "Proper T Care",
+            "URL_prefix": "propertcare"
+        }
+    ]
+}

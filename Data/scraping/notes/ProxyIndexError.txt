@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+File /anaconda3/lib/python3.7/socket.py, line 589, in readinto
+return self._sock.recv_into(b)
+File realtor.py, line 87, in handler
+raise TimeoutError
+TimeoutError
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+File realtor.py, line 134, in try_new_proxy
+response = requests.get(url, headers=self.get_headers(), proxies={http: proxy[0], https: proxy[0]})
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/requests/api.py, line 76, in get
+return request('get', url, params=params, **kwargs)
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/requests/api.py, line 61, in request
+return session.request(method=method, url=url, **kwargs)
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/requests/sessions.py, line 530, in request
+resp = self.send(prep, **send_kwargs)
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/requests/sessions.py, line 643, in send
+r = adapter.send(request, **kwargs)
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/requests/adapters.py, line 449, in send
+timeout=timeout
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/urllib3/connectionpool.py, line 667, in urlopen
+self._prepare_proxy(conn)
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/urllib3/connectionpool.py, line 930, in _prepare_proxy
+conn.connect()
+File /Users/Jeremy/Where-The-Heck/where-the-heck/lib/python3.7/site-packages/urllib3/connection.py, line 316, in connect
+self._tunnel()
+File /anaconda3/lib/python3.7/http/client.py, line 906, in _tunnel
+(version, code, message) = response._read_status()
+File /anaconda3/lib/python3.7/http/client.py, line 257, in _read_status
+line = str(self.fp.readline(_MAXLINE + 1), iso-8859-1)
+File /anaconda3/lib/python3.7/socket.py, line 594, in readinto
+if e.args[0] in _blocking_errnos:
+IndexError: tuple index out of range
