@@ -1,0 +1,64 @@
+{
+    "corvallis": [
+        {
+            "provider": "At Home Properties",
+            "URL": "https://www.athomepm.net",
+            "extension": null
+        },
+        {
+            "provider": "College Housing Northwest",
+            "URL": "https://gem.chnw.org",
+            "extension": "availability"
+        },
+        {
+            "provider": "Diversified Property Management",
+            "URL": "https://www.rentfromdiversified.com",
+            "extension": "corvallis-area-rentals"
+        },
+        {
+            "provider": "Duerksen & Asocciates",
+            "URL": "https://www.duerksenrentals.com",
+            "extension": "vacancies"
+        },
+        {
+            "provider": "Elite Property Management",
+            "URL": "https://www.elitepropertiesmanagement.com",
+            "extension": null
+        },
+        {
+            "provider": "Homeport Property Management",
+            "URL": "https://www.homeportrentals.com",
+            "extension": "vacancies"
+        },
+        {
+            "provider": "Principle Property Management",
+            "URL": "https://www.principlepm.com",
+            "extension": "vacancies"
+        },
+        {
+            "provider": "Sterling Management Group",
+            "URL": "https://www.sterlingmanagement.net",
+            "extension": "home_rentals"
+        },
+        {
+            "provider": "Trilliant Property Management",
+            "URL": "https://www.trilliantnw.com",
+            "extension": "vacancies"
+        },
+        {
+            "provider": "Valley Brokers Property Management",
+            "URL": "https://www.valleybrokerspropertymanagement.com",
+            "extension": "find-home"
+        },
+        {
+            "provider": "Willamette Valley Rentals",
+            "URL": "https://www.wvpm.net",
+            "extension": "vacancies"
+        },
+        {
+            "provider": "Windemere Property Management",
+            "URL": "https://wwvpm.com",
+            "extension": "vacancies"
+        }
+    ]
+}

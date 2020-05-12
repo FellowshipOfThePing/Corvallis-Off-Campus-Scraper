@@ -1,0 +1,16 @@
+{
+    "errors": {
+        "ContentEncoding": 0,
+        "SSL": 0,
+        "Timeout": 0,
+        "Proxy": 0,
+        "Other": 0
+    },
+    "stats": {
+        "GET_successes": 0,
+        "mean_GET_success_time": 0,
+        "GET_failures": 0,
+        "mean_GET_failure_time": 0,
+        "num_blacklisted": 0
+    }
+}
