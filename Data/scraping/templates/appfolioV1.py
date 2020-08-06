@@ -76,8 +76,8 @@ class AppfolioV1:
                 return
             else:
                 price_low, price_high = find_prices(price.text)
-            image = listing.find('div', class_="slider-image")['style']
-            image = image[image.find('\'')+1:image.rfind('\'')]
+            image = listing.find('div', class_="slider-image")
+            image = image["data-background-image"]
             beds = listing.find('div', class_='feature beds')
             baths = listing.find('div', class_='feature baths')
             sqft = listing.find('div', class_='feature sqft')
@@ -89,7 +89,8 @@ class AppfolioV1:
             # Parse text from tags
             beds = int(beds.text[0]) if (beds and ('studio' not in beds.text.lower())) else 1
             baths = float(baths.text.split()[0]) if baths else 1.0
-            sqft = int(sqft.text.split()[0]) if sqft else None
+            sqft = sqft.text.split()[0] if sqft else None
+            sqft = int(''.join([char for char in sqft if char.isdigit()]))
             pets = True if (dogs or cats) else None
             if available:
                 available = available.find('strong').text
