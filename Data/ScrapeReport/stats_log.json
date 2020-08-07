@@ -1,0 +1,876 @@
+{
+    "total_listings_scraped": 587,
+    "unique_listings_scraped": 490,
+    "duplicates_scraped": 97,
+    "new_listings": 54,
+    "retired_listings": 1,
+    "total_skipped": 345,
+    "skipped_by_type": {
+        "insufficient_data": 224,
+        "wrong_city": 112,
+        "unavailable": 7,
+        "error": 2
+    },
+    "total_null": 1835,
+    "null_by_type": {
+        "address": 0,
+        "unitNum": 257,
+        "price_high": 0,
+        "price_low": 498,
+        "beds": 3,
+        "baths": 41,
+        "pets": 405,
+        "sqft": 87,
+        "provider": 0,
+        "images": 0,
+        "URL": 0,
+        "available": 0,
+        "original_site": 544
+    },
+    "skipped_scrapers": [
+        "Retreat at Corvallis",
+        "Grand Oaks Community"
+    ],
+    "providers": {
+        "Chateau Management": {
+            "total_listings_scraped": 12,
+            "unique_listings_scraped": 12,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 31,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 7,
+                "price_high": 0,
+                "price_low": 12,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 12
+            }
+        },
+        "Crest Properties": {
+            "total_listings_scraped": 15,
+            "unique_listings_scraped": 15,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 4,
+            "skipped_by_type": {
+                "insufficient_data": 4,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 33,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 3,
+                "price_high": 0,
+                "price_low": 15,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 15
+            }
+        },
+        "Investor Property Mgmt": {
+            "total_listings_scraped": 0,
+            "unique_listings_scraped": 0,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 2,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 2,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 0,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 0,
+                "price_high": 0,
+                "price_low": 0,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 0
+            }
+        },
+        "Kampfer Enterprises": {
+            "total_listings_scraped": 5,
+            "unique_listings_scraped": 5,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 9,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 9,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 13,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 3,
+                "price_high": 0,
+                "price_low": 5,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 5
+            }
+        },
+        "Paragon Realty": {
+            "total_listings_scraped": 6,
+            "unique_listings_scraped": 6,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 1,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 1
+            },
+            "total_null": 16,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 4,
+                "price_high": 0,
+                "price_low": 6,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 6
+            }
+        },
+        "Proper T Care": {
+            "total_listings_scraped": 1,
+            "unique_listings_scraped": 1,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 3,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 1,
+                "price_high": 0,
+                "price_low": 1,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 1
+            }
+        },
+        "At Home Properties": {
+            "total_listings_scraped": 34,
+            "unique_listings_scraped": 34,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 1,
+            "skipped_by_type": {
+                "insufficient_data": 1,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 117,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 4,
+                "price_high": 0,
+                "price_low": 34,
+                "beds": 0,
+                "baths": 0,
+                "pets": 34,
+                "sqft": 11,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 34
+            }
+        },
+        "College Housing Northwest": {
+            "total_listings_scraped": 54,
+            "unique_listings_scraped": 54,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 162,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 0,
+                "price_high": 0,
+                "price_low": 54,
+                "beds": 0,
+                "baths": 0,
+                "pets": 54,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 54
+            }
+        },
+        "Diversified Property Management": {
+            "total_listings_scraped": 3,
+            "unique_listings_scraped": 3,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 2,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 2,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 12,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 3,
+                "price_high": 0,
+                "price_low": 3,
+                "beds": 0,
+                "baths": 0,
+                "pets": 3,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 3
+            }
+        },
+        "Duerksen & Asocciates": {
+            "total_listings_scraped": 36,
+            "unique_listings_scraped": 36,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 3,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 3,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 123,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 14,
+                "price_high": 0,
+                "price_low": 36,
+                "beds": 0,
+                "baths": 0,
+                "pets": 36,
+                "sqft": 1,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 36
+            }
+        },
+        "Elite Property Management": {
+            "total_listings_scraped": 10,
+            "unique_listings_scraped": 10,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 40,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 9,
+                "price_high": 0,
+                "price_low": 10,
+                "beds": 0,
+                "baths": 0,
+                "pets": 10,
+                "sqft": 1,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 10
+            }
+        },
+        "Homeport Property Management": {
+            "total_listings_scraped": 4,
+            "unique_listings_scraped": 4,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 16,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 4,
+                "price_high": 0,
+                "price_low": 4,
+                "beds": 0,
+                "baths": 0,
+                "pets": 4,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 4
+            }
+        },
+        "Principle Property Management": {
+            "total_listings_scraped": 11,
+            "unique_listings_scraped": 11,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 9,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 9,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 38,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 2,
+                "price_high": 0,
+                "price_low": 11,
+                "beds": 0,
+                "baths": 0,
+                "pets": 11,
+                "sqft": 3,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 11
+            }
+        },
+        "Sterling Management Group": {
+            "total_listings_scraped": 26,
+            "unique_listings_scraped": 26,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 32,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 32,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 95,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 13,
+                "price_high": 0,
+                "price_low": 26,
+                "beds": 0,
+                "baths": 0,
+                "pets": 26,
+                "sqft": 4,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 26
+            }
+        },
+        "Trilliant Property Management": {
+            "total_listings_scraped": 0,
+            "unique_listings_scraped": 0,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 12,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 12,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 0,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 0,
+                "price_high": 0,
+                "price_low": 0,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 0
+            }
+        },
+        "Valley Brokers Property Management": {
+            "total_listings_scraped": 3,
+            "unique_listings_scraped": 3,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 3,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 3,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 12,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 3,
+                "price_high": 0,
+                "price_low": 3,
+                "beds": 0,
+                "baths": 0,
+                "pets": 3,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 3
+            }
+        },
+        "Willamette Valley Rentals": {
+            "total_listings_scraped": 3,
+            "unique_listings_scraped": 3,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 2,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 2,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 12,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 2,
+                "price_high": 0,
+                "price_low": 3,
+                "beds": 0,
+                "baths": 0,
+                "pets": 3,
+                "sqft": 1,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 3
+            }
+        },
+        "Windemere Property Management": {
+            "total_listings_scraped": 11,
+            "unique_listings_scraped": 11,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 5,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 5,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 39,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 6,
+                "price_high": 0,
+                "price_low": 11,
+                "beds": 0,
+                "baths": 0,
+                "pets": 11,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 11
+            }
+        },
+        "Witham Hill Oaks": {
+            "total_listings_scraped": 30,
+            "unique_listings_scraped": 30,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 1,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 1,
+                "error": 0
+            },
+            "total_null": 30,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 0,
+                "price_high": 0,
+                "price_low": 0,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 30
+            }
+        },
+        "BeaverPads": {
+            "total_listings_scraped": 16,
+            "unique_listings_scraped": 16,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 4,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 4,
+                "error": 0
+            },
+            "total_null": 64,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 16,
+                "price_high": 0,
+                "price_low": 16,
+                "beds": 0,
+                "baths": 0,
+                "pets": 16,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 16
+            }
+        },
+        "Preferred Properties NW": {
+            "total_listings_scraped": 5,
+            "unique_listings_scraped": 5,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 1,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 20,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 5,
+                "price_high": 0,
+                "price_low": 5,
+                "beds": 0,
+                "baths": 5,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 5
+            }
+        },
+        "Corvallis Property Management LLC": {
+            "total_listings_scraped": 7,
+            "unique_listings_scraped": 7,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 27,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 2,
+                "price_high": 0,
+                "price_low": 7,
+                "beds": 0,
+                "baths": 0,
+                "pets": 7,
+                "sqft": 4,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 7
+            }
+        },
+        "JPM Real Estate": {
+            "total_listings_scraped": 4,
+            "unique_listings_scraped": 4,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 33,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 33,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 16,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 0,
+                "price_high": 0,
+                "price_low": 4,
+                "beds": 0,
+                "baths": 0,
+                "pets": 4,
+                "sqft": 4,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 4
+            }
+        },
+        "7th Street Station": {
+            "total_listings_scraped": 6,
+            "unique_listings_scraped": 6,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 2,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 2,
+                "error": 0
+            },
+            "total_null": 17,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 6,
+                "price_high": 0,
+                "price_low": 5,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 6
+            }
+        },
+        "The Union Student Living": {
+            "total_listings_scraped": 18,
+            "unique_listings_scraped": 18,
+            "duplicates_scraped": 0,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 54,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 18,
+                "price_high": 0,
+                "price_low": 18,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 18
+            }
+        },
+        "Trulia": {
+            "total_listings_scraped": 113,
+            "unique_listings_scraped": 99,
+            "duplicates_scraped": 14,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 4,
+            "skipped_by_type": {
+                "insufficient_data": 3,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 1
+            },
+            "total_null": 374,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 75,
+                "price_high": 0,
+                "price_low": 98,
+                "beds": 3,
+                "baths": 0,
+                "pets": 72,
+                "sqft": 13,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 113
+            }
+        },
+        "Apartments": {
+            "total_listings_scraped": 43,
+            "unique_listings_scraped": 17,
+            "duplicates_scraped": 26,
+            "new_listings": 0,
+            "retired_listings": 0,
+            "total_skipped": 216,
+            "skipped_by_type": {
+                "insufficient_data": 216,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 13,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 13,
+                "price_high": 0,
+                "price_low": 0,
+                "beds": 0,
+                "baths": 0,
+                "pets": 0,
+                "sqft": 0,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 0
+            }
+        },
+        "Zillow": {
+            "total_listings_scraped": 111,
+            "unique_listings_scraped": 54,
+            "duplicates_scraped": 57,
+            "new_listings": 54,
+            "retired_listings": 0,
+            "total_skipped": 0,
+            "skipped_by_type": {
+                "insufficient_data": 0,
+                "wrong_city": 0,
+                "unavailable": 0,
+                "error": 0
+            },
+            "total_null": 458,
+            "null_by_type": {
+                "address": 0,
+                "unitNum": 44,
+                "price_high": 0,
+                "price_low": 111,
+                "beds": 0,
+                "baths": 36,
+                "pets": 111,
+                "sqft": 45,
+                "provider": 0,
+                "images": 0,
+                "URL": 0,
+                "available": 0,
+                "original_site": 111
+            }
+        }
+    }
+}
