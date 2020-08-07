@@ -90,7 +90,8 @@ class AppfolioV1:
             beds = int(beds.text[0]) if (beds and ('studio' not in beds.text.lower())) else 1
             baths = float(baths.text.split()[0]) if baths else 1.0
             sqft = sqft.text.split()[0] if sqft else None
-            sqft = int(''.join([char for char in sqft if char.isdigit()]))
+            if sqft:
+                sqft = int(''.join([char for char in sqft if char.isdigit()]))
             pets = True if (dogs or cats) else None
             if available:
                 available = available.find('strong').text

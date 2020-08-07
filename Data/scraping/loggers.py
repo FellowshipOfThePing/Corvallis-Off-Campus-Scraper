@@ -464,7 +464,8 @@ def update_new_ret_stats(college, new, retired, total):
         stats["providers"][new[listing]['provider']]["new_listings"] += 1
 
     for listing in retired:
-        stats["providers"][retired[listing]['provider']]["retired_listings"] += 1
+        if retired[listing]['provider'] in stats["providers"]:
+            stats["providers"][retired[listing]['provider']]["retired_listings"] += 1
 
     # Write back to file
     with open(log_file, 'w') as sl:
