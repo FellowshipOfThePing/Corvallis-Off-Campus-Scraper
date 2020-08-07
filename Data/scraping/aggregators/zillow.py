@@ -41,6 +41,7 @@ class Zillow:
         self.state = state.lower()
         self.college = college
         self.listing_dicts = []
+        self.total_pages = 1
         clear_proxy_log()
         clear_proxy_stats()
         clear_proxy_blacklist()
@@ -103,11 +104,22 @@ class Zillow:
             # Load JSON into Dict
             json_data = json.loads(json_data)
 
+            # Write to file (for debugging only)
+            # with open("test.json", 'w') as jf:
+            #     json.dump(json_data, jf, indent=4)
+
             # Find if last page
-            total_pages = json_data['searchList']['totalPages']
+
 
             # Get search results from JSON
-            search_results = json_data['searchResults']['listResults']
+            if 'cat1' in json_data.keys():
+                search_results = json_data['cat1']['searchResults']['listResults']
+                if self.total_pages == 1:
+                    self.total_pages = json_data['cat1']['searchList']['totalPages']
+            else:
+                search_results = json_data['searchResults']['listResults']
+                if self.total_pages == 1:
+                    self.total_pages = json_data['searchList']['totalPages']
 
             # Iterate through listings, saving to Raw listings JSON
             for prop in search_results:
@@ -193,9 +205,6 @@ class Zillow:
         except Exception as e:
             write_to_error_log(self.college, 'Zillow', e)
 
-        finally:
-            return total_pages
-
 
     def get_data(self):
         """
@@ -203,14 +212,13 @@ class Zillow:
         """
         print(f"Zillow.com: {self.city}-{self.state}")
         page_num = 1
-        total_pages = 1
-        while page_num <= total_pages:
+        while page_num <= self.total_pages:
             print(f'Zillow Page {page_num}')
             page_url = f"https://www.zillow.com/{self.city}-{self.state}/rentals/{page_num}_p/"
             response = self.get_proxied_response(page_url)
             json_data = self.parse_json_from_html(response)
             if json_data:
-                total_pages = self.parse_listings_from_json(json_data)
+                self.parse_listings_from_json(json_data)
                 page_num += 1
             else:
                 return
