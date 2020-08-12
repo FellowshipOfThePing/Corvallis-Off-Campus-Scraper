@@ -395,10 +395,18 @@ class Scraper:
             json.dump(local_address_backup, rb, indent=4)
 
     
-    def backup_scraper_stats(self):
-        """
-        Backup local scraper stats file to remote collection
-        """
+    def summarize_scrape(self):
+        """Prints summary stats for scrape"""
+
+        print_green("Successful Scrape")
+        with open("./" + self.stats_log, 'r') as sl:
+            stats = json.load(sl)
+            print("Total Listings:", stats["total_listings_scraped"])
+            print("Unique Listings:", stats["unique_listings_scraped"])
+            print("New Listings:", stats["new_listings"])
+            print("Retired Listings:", stats["retired_listings"])
+            print("Skipped:", stats["total_skipped"])
+
 
 
     
@@ -416,6 +424,8 @@ class Scraper:
         self.backup_formatted_listings()
         self.update_address_listings()
         self.backup_address_listings()
+        self.summarize_scrape()
+        
 
 if __name__ == '__main__':
     s = Scraper('OSU', ['corvallis'], 'OR')
