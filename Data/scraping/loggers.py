@@ -21,6 +21,18 @@ import sys
 import os
 
 
+def remove_duplicate_images(images):
+    """
+    Remove all duplicate URLs from images array, return new list.
+    """
+    seen = set()
+    unique_images = []
+    for image in images:
+        if image not in seen:
+            unique_data.append(x)
+            seen.add(x)
+    return unique_images
+
 
 def write_to_raw_json(unit, college):
     """
@@ -39,16 +51,18 @@ def write_to_raw_json(unit, college):
 
     # If unit not found yet
     if raw_listing_id not in raw_listings:
+        unit['images'] = remove_duplicate_images(unit['images'])
         raw_listings[raw_listing_id] = unit
         raw_listings[raw_listing_id]['duplicates'] = []
         raw_listings[raw_listing_id]['raw_id'] = raw_listing_id
         update_scrape_stats(college, unit)
         print('Listing Added to JSON:', raw_listing_id)
-        
+
     # If unit already found from different provider
     elif unit['provider'] != raw_listings[raw_listing_id]['provider']:
         raw_listings[raw_listing_id]['images'] += unit['images']
-        raw_listings[raw_listing_id]['images'] = list(set(raw_listings[raw_listing_id]['images']))
+        raw_listings[raw_listing_id]['images'] = remove_duplicate_images(
+            raw_listings[raw_listing_id]['images'])
         dup_unit = {
             'provider': unit['provider'],
             'URL': unit['URL']
@@ -56,14 +70,13 @@ def write_to_raw_json(unit, college):
         raw_listings[raw_listing_id]['duplicates'].append(dup_unit)
         update_scrape_stats(college, unit, duplicate=True)
         print('Duplicate Added to JSON:', raw_listing_id)
-        
+
     # Else, don't do anything
-    
+
     # Write back to file
     with open(file_name, 'w') as jf:
         json.dump(raw_listings, jf, indent=4)
 
-    
 
 def write_to_formatted_json(unit, college):
     """
@@ -108,7 +121,7 @@ def write_to_formatted_json(unit, college):
         if unit['unitNum'] in listings[listing_id]['units']:
             listings[listing_id]['duplicates'].append(unit)
         # if not, capture new listings provider, URL, and availability, add to 'units' dict as a unit
-        else:        
+        else:
             new_unit_num = unit['unitNum']
             if not new_unit_num:
                 new_unit_num = f"defaultUnit{len(listings[listing_id]['units'])}"
@@ -119,7 +132,8 @@ def write_to_formatted_json(unit, college):
             }
         # Throw images of new unit into OG listing, and cut duplicates
         listings[listing_id]['images'] += unit['images']
-        listings[listing_id]['images'] = list(set(listings[listing_id]['images']))
+        listings[listing_id]['images'] = remove_duplicate_images(
+            listings[listing_id]['images'])
 
     # Finally, adjust listings 'sources' dict to reflect sources
     if unit['provider'] not in listings[listing_id]['sources']:
@@ -136,7 +150,6 @@ def write_to_formatted_json(unit, college):
     # Write back to file
     with open(file_name, 'w') as jf:
         json.dump(listings, jf, indent=4)
-
 
 
 def write_to_address_json(unit, college):
@@ -188,7 +201,7 @@ def write_to_address_json(unit, college):
         if unit['unitNum'] in listings[address_id]['units']:
             listings[address_id]['duplicates'].append(unit)
         # if not, capture new listings provider, URL, and availability, add to 'units' dict as a unit
-        else:        
+        else:
             new_unit_num = unit['unitNum']
             if not new_unit_num:
                 new_unit_num = f"defaultUnit{len(listings[address_id]['units'])}"
@@ -204,7 +217,8 @@ def write_to_address_json(unit, college):
             }
         # Throw images of new unit into OG listing, and cut duplicates
         listings[address_id]['images'] += unit['images']
-        listings[address_id]['images'] = list(set(listings[address_id]['images']))
+        listings[address_id]['images'] = remove_duplicate_images(
+            listings[address_id]['images'])
 
     # Finally, adjust listings 'sources' dict to reflect sources
     if unit['provider'] not in listings[address_id]['sources']:
@@ -219,7 +233,6 @@ def write_to_address_json(unit, college):
     # Write back to file
     with open(file_name, 'w') as jf:
         json.dump(listings, jf, indent=4)
-
 
 
 def write_to_error_log(college, provider, e, link=None):
@@ -254,7 +267,6 @@ def write_to_error_log(college, provider, e, link=None):
         json.dump(error_log, el, indent=4)
 
 
-
 def write_to_skipped_listings(college, provider, reason, address):
     """
     Write skipped listing to log for later inspection.
@@ -283,7 +295,6 @@ def write_to_skipped_listings(college, provider, reason, address):
         json.dump(log, lf, indent=4)
 
 
-
 def write_to_duplicate_log(unit, unit_id):
     """
     Write to duplicate log (list of dictionaries)
@@ -300,7 +311,6 @@ def write_to_duplicate_log(unit, unit_id):
 
     with open(file_name, 'w') as jf:
         json.dump(duplicates, jf, indent=4)
-
 
 
 def clear_scrape_log(college):
@@ -342,7 +352,6 @@ def clear_scrape_log(college):
     with open(f"./{college}/logs/stats_log.json", 'w') as sl:
         json.dump(stats, sl, indent=4)
 
-    
 
 def update_scrape_stats(college, unit, duplicate=False):
     """
@@ -379,7 +388,6 @@ def update_scrape_stats(college, unit, duplicate=False):
     with open(log_file, 'w') as sl:
         json.dump(stats, sl, indent=4)
 
-    
 
 def skip_listing(college, reason, provider):
     """
@@ -424,7 +432,6 @@ def skip_listing(college, reason, provider):
         json.dump(stats, sl, indent=4)
 
 
-
 def skip_scraper(college, provider):
     """
     Update skipped_scrapers field in scrape stats log.
@@ -440,10 +447,9 @@ def skip_scraper(college, provider):
     # Write back to file
     with open(log_file, 'w') as sl:
         json.dump(stats, sl, indent=4)
-    
+
     # Print notice
     print_red('Skipping Scraper...')
-
 
 
 def update_new_ret_stats(college, new, retired, total):
@@ -465,7 +471,8 @@ def update_new_ret_stats(college, new, retired, total):
 
     for listing in retired:
         if retired[listing]['provider'] in stats["providers"]:
-            stats["providers"][retired[listing]['provider']]["retired_listings"] += 1
+            stats["providers"][retired[listing]
+                               ['provider']]["retired_listings"] += 1
 
     # Write back to file
     with open(log_file, 'w') as sl:
@@ -475,7 +482,6 @@ def update_new_ret_stats(college, new, retired, total):
     print(f'New Listings: {len(new)}')
     print(f'Retired Listings: {len(retired)}')
     print(f'Total Listings: {total}')
-
 
 
 def archive_scrape_stats(college, database):
@@ -508,7 +514,6 @@ def archive_scrape_stats(college, database):
     remote_collection = database.scrape_stats_archive
     remote_collection.drop()
     remote_collection.insert_one(archive)
-    
 
 
 def add_provider(stats, provider):

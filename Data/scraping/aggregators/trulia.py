@@ -121,9 +121,9 @@ class Trulia:
                         if "PET FRIENDLY" in tag.values():
                             pets = True
                     photos = listing['media']['photos']
-                    images = set()
+                    images = list()
                     for photo in photos:
-                        images.add(photo['url']['small'])
+                        images.append(photo['url']['small'])
                     detail_link = 'https://www.trulia.com' + listing['url']
                     latitude = listing['location']['coordinates']['latitude']
                     longitude = listing['location']['coordinates']['longitude']
@@ -138,7 +138,7 @@ class Trulia:
                         'pets': pets,
                         'sqft': sqft,
                         'provider': 'Trulia',
-                        'images': list(images),
+                        'images': images,
                         'URL': detail_link,
                         'original_site': None,
                         'available': 'Now',
