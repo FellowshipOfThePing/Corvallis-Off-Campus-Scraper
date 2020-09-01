@@ -137,7 +137,8 @@ def create_duplicate_id(unit, unit_id=False):
     """
     Create and return a 'duplicate ID', to be used as a key for the given listing.
     """
-    address_id = ''.join((unit['address'].upper()).split())
+    alnum_address = [char for char in unit['address'].upper() if char.isalnum()]
+    address_id = ''.join(alnum_address)
     price_id = (str(unit['price_high']) + 'P') if unit['price_high'] else ''
     beds_id = (str(unit['beds']) + 'BD') if unit['beds'] else ''
     baths_id = (str(unit['baths']) + 'BA') if unit['baths'] else ''

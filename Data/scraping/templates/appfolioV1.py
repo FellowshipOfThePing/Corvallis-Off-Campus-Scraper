@@ -130,6 +130,7 @@ class AppfolioV1:
         results = self.fetch_results()
         if not results:
             print('Cannot fetch results')
+            skip_scraper(self.college, self.provider)
             return
         for result in results:
             self.parse_page(result)
