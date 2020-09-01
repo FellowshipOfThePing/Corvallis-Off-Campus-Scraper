@@ -36,6 +36,7 @@ class Realtor:
     Scraper object for Realtor.com
     Takes city, state, and college as string parameters
     """
+
     def __init__(self, city, state, college):
         self.city = city.lower()
         self.state = state.lower()
@@ -46,7 +47,6 @@ class Realtor:
         clear_proxy_blacklist()
         self.proxy_set = get_proxies()
         self.proxy_pool = cycle(self.proxy_set)
-
 
     def get_headers(self):
         """
@@ -61,7 +61,6 @@ class Realtor:
             'upgrade-insecure-requests': '1',
             'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'}
         return headers
-
 
     def get_response(self, url):
         """
@@ -78,13 +77,11 @@ class Realtor:
                 return response
         return
 
-
     def handler(self, signum, frame):
         """
         Timeout handler for proxy requests.
         """
         raise TimeoutError
-
 
     def increment_failures(self, proxy):
         """
@@ -100,7 +97,6 @@ class Realtor:
             write_to_proxy_log(temp, 'Realtor')
             self.proxy_pool = cycle(self.proxy_set)
 
-
     def decrement_failures(self, proxy):
         """
         Decrement failure count of given proxy before writing to proxy_log.
@@ -112,7 +108,6 @@ class Realtor:
             write_to_proxy_log(temp, 'Realtor', decrement=True)
             self.proxy_pool = cycle(self.proxy_set)
 
-    
     def blacklist_proxy(self, proxy):
         """
         Remove given proxy from self.proxies, re-cycle proxy_pool.
@@ -123,14 +118,14 @@ class Realtor:
         self.proxy_set.remove(proxy)
         self.proxy_pool = cycle(self.proxy_set)
 
-
     def try_new_proxy(self, url, proxy):
         """
         GET request with new proxy IP.
         """
         try:
             start_time = time.time()
-            response = requests.get(url, headers=self.get_headers(), proxies={"http": f'http://{proxy[0]}', "https": f'https://{proxy[0]}'})
+            response = requests.get(url, headers=self.get_headers(), proxies={
+                                    "http": f'http://{proxy[0]}', "https": f'https://{proxy[0]}'})
             if response.status_code != 200:
                 # No error but also no successful response
                 return -1
@@ -173,8 +168,6 @@ class Realtor:
             write_to_error_log(self.college, "Realtor", e)
             adjust_proxy_mean_GET_failure(start_time)
             return
-            
-
 
     def get_proxied_response(self, url):
         """
@@ -226,9 +219,8 @@ class Realtor:
                 self.proxy_pool = cycle(self.proxy_set)
                 clear_proxy_log()
                 response = None
-        
-        return response
 
+        return response
 
     def find_detail_links(self, url):
         """
@@ -237,7 +229,8 @@ class Realtor:
         response = self.get_response(url)
         if response:
             html_soup = BeautifulSoup(response.text, 'html.parser')
-            listing_cards = html_soup.find_all('li', class_='component_property-card js-component_property-card')
+            listing_cards = html_soup.find_all(
+                'li', class_='component_property-card js-component_property-card')
             listing_cards = [x for x in listing_cards]
             for listing in listing_cards:
                 link = 'https://www.realtor.com' + listing['data-url']
@@ -253,7 +246,6 @@ class Realtor:
         else:
             return
 
-
     def scrape_details(self):
         """
         Scrape details pages from detail links attribute. Write results to JSON file.
@@ -265,16 +257,19 @@ class Realtor:
                     response = self.get_proxied_response(link)
                     if not response:
                         continue
-                    print_green(f'Successful GET ({i+1}/{len(self.listing_links)})')
+                    print_green(
+                        f'Successful GET ({i+1}/{len(self.listing_links)})')
                     time.sleep(5)
                     detail_page = BeautifulSoup(response.text, 'html.parser')
                     with open('response.html', 'w') as hf:
                         hf.write(response.text)
-                    scripts = detail_page.find_all('script', type='text/javascript')
+                    scripts = detail_page.find_all(
+                        'script', type='text/javascript')
                     for s in scripts:
                         if '$.extend(' in str(s):
                             json_data = str(s)
-                            json_data = json_data[json_data.find('{'):json_data.rfind('}')+1]
+                            json_data = json_data[json_data.find(
+                                '{'):json_data.rfind('}')+1]
                     if json_data:
                         data = json.loads(json_data)
                     else:
@@ -284,7 +279,7 @@ class Realtor:
                     photos = [None]
                     if "photos" in data:
                         photos = data["photos"]
-                        photos = list(set([photo["url"] for photo in photos]))
+                        photos = [photo["url"] for photo in photos]
                     # Iterate through floor plans (if present)
                     if "grouped_floor_plans" in data:
                         floor_plans = data["grouped_floor_plans"]
@@ -296,12 +291,14 @@ class Realtor:
                                 if name:
                                     address, unitNum = find_unit_num(name)
                                 else:
-                                    address, unitNum = find_unit_num(street_address)
+                                    address, unitNum = find_unit_num(
+                                        street_address)
                                 price_high = u["price"]
                                 beds = u["beds"]
                                 baths = u["baths"]
                                 sqft = u["sqft"]
-                                unit_images = list(set([u["photo_url"]] + photos))
+                                unit_images = list(
+                                    set([u["photo_url"]] + photos))
                                 available = u['available_date']
                                 # Build document for DB
                                 unit = {
@@ -346,7 +343,6 @@ class Realtor:
                         }
                         write_to_raw_json(unit, self.college)
 
-
                 # Print Scraping errors and write to log file
                 except Exception as e:
                     write_to_error_log(self.college, 'Realtor', e, link=link)
@@ -355,7 +351,6 @@ class Realtor:
 
         except Exception as e:
             write_to_error_log(self.college, 'Realtor', e, link=link)
-
 
     def get_data(self):
         """
@@ -373,20 +368,15 @@ class Realtor:
         self.scrape_details()
 
 
-
-
-
 # Construct CLI Arguments and parse input
 # ap = argparse.ArgumentParser()
 # ap.add_argument("-u", "--university", required=True, help="College to Scrape listings for")
 # ap.add_argument("-c", "--city", required=True, help="College to Scrape listings for")
 # ap.add_argument("-s", "--state", required=True, help="State to Scrape listings for")
 # args = vars(ap.parse_args())
-
 # college = args['university']
 # city = args['city']
 # state = args['state']
-
 # Run Scraper
 a = Realtor('corvallis', 'or', '../OSU')
 a.get_data()
