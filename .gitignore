@@ -38,6 +38,9 @@ response.html
 test.json
 text.json
 
+# local config
+.vscode
+
 # pycache
 __pycache__/
 *.pyc

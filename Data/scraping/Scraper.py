@@ -84,6 +84,17 @@ class Scraper:
         Call Scraper files
         """
         print("\n********** SCRAPING SITES **********\n")
+        # Aggregator Scrapers
+        for city in self.cities:
+            for filename in os.listdir('aggregators'):
+                try:
+                    command_string = f'python ./aggregators/{filename} --university ./{self.college} --city {city} --state {self.state}'
+                    os.system(command_string)
+                except Exception as e:
+                    write_to_error_log(self.college, filename, e)
+                    skip_scraper(self.college, filename + ' - Scraper Threw Exception')
+                    continue
+
         # Template Scrapers
         for city in self.cities:
             for filename in os.listdir('templates'):
@@ -103,17 +114,6 @@ class Scraper:
                 write_to_error_log(self.college, filename, e)
                 skip_scraper(self.college, filename + ' - Scraper Threw Exception')
                 continue
-
-        # Aggregator Scrapers
-        for city in self.cities:
-            for filename in os.listdir('aggregators'):
-                try:
-                    command_string = f'python ./aggregators/{filename} --university ./{self.college} --city {city} --state {self.state}'
-                    os.system(command_string)
-                except Exception as e:
-                    write_to_error_log(self.college, filename, e)
-                    skip_scraper(self.college, filename + ' - Scraper Threw Exception')
-                    continue
 
 
     def update_location_data(self):
