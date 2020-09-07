@@ -22,14 +22,7 @@ import os
 
 BING_KEY = os.getenv("bing_key")
 MONGO_KEY = os.getenv("mongo_key")
-CAMPUS_CORNERS = [
-    (44.561948, -123.287313),
-    (44.566828, -123.286813),
-    (44.568549, -123.280157),
-    (44.564558, -123.272886),
-    (44.560402, -123.276123),
-    (44.561951, -123.282393)
-]
+CAMPUS_CENTER = (44.5650, -123.2789)
 
 
 def get_coords_from_address(state, city, address):
@@ -88,13 +81,13 @@ def get_walk_data(addresses):
     Addresses param is a dictionary with address keys and values of dictionaries with distances data.
     """
 
-    # For each address, find the minimum distance to campus by comparing given address distance to each campus corner
+    # For each address, find the distance to campus center
     num_addresses = len(addresses)
     for i, address in enumerate(addresses):
         if ('walk_to_campus_miles' not in addresses[address]) or ('walk_to_campus_minutes' not in addresses[address]):
             params = {
                 "origins": str(addresses[address]['latitude']) + ',' + str(addresses[address]['longitude']),
-                "destinations": ';'.join([str(corner[0]) + ',' + str(corner[1]) for corner in CAMPUS_CORNERS]),
+                "destinations": str(CAMPUS_CENTER[0]) + ',' + str(CAMPUS_CENTER[1]),
                 "timeUnit": "minute",
                 "distanceUnit": "mile",
                 "travelMode": "walking",
@@ -121,13 +114,13 @@ def get_drive_data(addresses):
     Addresses param is a dictionary with address keys and values of dictionaries with distances data.
     """
 
-    # For each address, find the minimum distance to campus by comparing given address distance to each campus corner
+    # For each address, find the distance to campus center
     num_addresses = len(addresses)
     for i, address in enumerate(addresses):
         if ('drive_to_campus_miles' not in addresses[address]) or ('drive_to_campus_minutes' not in addresses[address]):
             params = {
                 "origins": str(addresses[address]['latitude']) + ',' + str(addresses[address]['longitude']),
-                "destinations": ';'.join([str(corner[0]) + ',' + str(corner[1]) for corner in CAMPUS_CORNERS]),
+                "destinations": str(CAMPUS_CENTER[0]) + ',' + str(CAMPUS_CENTER[1]),
                 "timeUnit": "minute",
                 "distanceUnit": "mile",
                 "travelMode": "driving",
@@ -171,13 +164,13 @@ def add_driving_data_to_docs(documents):
     # Dictionary of addresses (removes duplicates before calling API)
     addresses = {doc['address']:doc for doc in documents}
 
-    # For each address, find the minimum distance to campus by comparing given address distance to each campus corner
+    # For each address, find the distance to campus center
     for i, address in enumerate(addresses):
         if 'drive_to_campus_miles' in addresses[address]:
             continue
         params = {
             "origins": str(addresses[address]['latitude']) + ',' + str(addresses[address]['longitude']),
-            "destinations": ';'.join([str(corner[0]) + ',' + str(corner[1]) for corner in CAMPUS_CORNERS]),
+            "destinations": str(CAMPUS_CENTER[0]) + ',' + str(CAMPUS_CENTER[1]),
             "timeUnit": "minute",
             "distanceUnit": "mile",
             "travelMode": "driving",
@@ -214,13 +207,13 @@ def add_walking_data_to_docs(documents):
     # Dictionary of addresses (removes duplicates before calling API)
     addresses = {doc['address']:doc for doc in documents}
 
-    # For each address, find the minimum distance to campus by comparing given address distance to each campus corner
+    # For each address, find the distance to campus center
     for i, address in enumerate(addresses):
         if 'walk_to_campus_miles' in addresses[address]:
             continue
         params = {
             "origins": str(addresses[address]['latitude']) + ',' + str(addresses[address]['longitude']),
-            "destinations": ';'.join([str(corner[0]) + ',' + str(corner[1]) for corner in CAMPUS_CORNERS]),
+            "destinations": str(CAMPUS_CENTER[0]) + ',' + str(CAMPUS_CENTER[1]),
             "timeUnit": "minute",
             "distanceUnit": "mile",
             "travelMode": "walking",

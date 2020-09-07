@@ -124,7 +124,7 @@ class Scraper:
 
         # Create local location data file (if not already created)
         if not os.path.exists(self.location_data):
-            os.makedirs(self.location_data)
+            open(self.location_data, 'w+').close()
 
         # Get data from local raw file
         if os.stat(self.raw_listings_json).st_size != 0:
