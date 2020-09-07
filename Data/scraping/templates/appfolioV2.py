@@ -69,7 +69,11 @@ class AppfolioV2:
                 skip_listing(self.college, 'city', self.provider)
                 return
             address, unitNum = find_unit_num(address.text)
+<<<<<<< Updated upstream
             image = listing.find('img', class_='listing-item__image lazy js-listing-image')
+=======
+            image = listing.find('img', class_='listing-item__image')
+>>>>>>> Stashed changes
             image = image['src'] if image else None
             pets = False if listing.find('span', class_='js-listing-pet-policy') else None
             detail_link = f"https://{self.url_prefix}.appfolio.com" + listing.find('a', class_="btn btn-secondary js-link-to-detail")['href']
