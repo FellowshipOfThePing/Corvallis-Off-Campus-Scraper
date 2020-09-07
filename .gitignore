@@ -40,7 +40,7 @@ text.json
 
 # local config
 .vscode
-.env
+Data/.env
 
 # pycache
 __pycache__/
