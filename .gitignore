@@ -42,7 +42,6 @@ text.json
 .vscode
 Data/.env
 
-
 # pycache
 __pycache__/
 *.pyc
