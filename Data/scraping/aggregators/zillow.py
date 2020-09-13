@@ -126,6 +126,8 @@ class Zillow:
                 try:
                     address = prop['addressStreet']
                     address, unitNum = find_unit_num(address)
+                    if "BED" in address or "BATH" in address.upper():
+                        continue
                     image = prop['imgSrc']
                     baths = None
                     sqft = None

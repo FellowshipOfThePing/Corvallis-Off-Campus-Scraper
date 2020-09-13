@@ -29,7 +29,7 @@ def remove_duplicate_images(images):
     unique_images = []
     for image in images:
         if image not in seen:
-            unique_images.append(x)
+            unique_images.append(image)
             seen.add(image)
     return unique_images
 

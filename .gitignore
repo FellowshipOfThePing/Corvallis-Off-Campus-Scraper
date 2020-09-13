@@ -40,6 +40,8 @@ text.json
 
 # local config
 .vscode
+Data/.env
+
 
 # pycache
 __pycache__/
